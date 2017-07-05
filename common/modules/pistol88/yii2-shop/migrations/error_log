@@ -1,0 +1,1 @@
+[14-Mar-2017 10:18:21 Europe/Helsinki] PHP Fatal error:  Class 'yii\db\Migration' not found in /home/pxbbxcyx/public_html/common/modules/pistol88/yii2-shop/migrations/m160521_112619_Mass.php on line 6

@@ -1,0 +1,49 @@
+[01-Feb-2017 13:57:03 Europe/Helsinki] PHP Warning:  Uncaught yii\base\ErrorException: session_regenerate_id(): open(/home/pxbbxcyx/public_html/tmp//sess_a8q1m8ehvroa9pve9aomsnt1u7, O_RDWR) failed: No such file or directory (2) in /home/pxbbxcyx/public_html/vendor/yiisoft/yii2/web/Session.php:282
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_regener...', '/home/pxbbxcyx/...', 282, Array)
+#1 /home/pxbbxcyx/public_html/vendor/yiisoft/yii2/web/Session.php(282): session_regenerate_id(true)
+#2 /home/pxbbxcyx/public_html/vendor/yiisoft/yii2/web/User.php(626): yii\web\Session->regenerateID(true)
+#3 /home/pxbbxcyx/public_html/vendor/yiisoft/yii2/web/User.php(248): yii\web\User->switchIdentity(Object(common\models\User), 2592000)
+#4 /home/pxbbxcyx/public_html/frontend/modules/user/models/LoginForm.php(67): yii\web\User->login(Object(common\models\User), 2592000)
+#5 /home/pxbbxcyx/public_html/frontend/modules/user/controllers/SignInController.php(96): frontend\modules\user\models\LoginForm->login()
+#6 [internal function]: frontend\mo in /home/pxbbxcyx/public_html/vendor/yiisoft/yii2/web/Session.php on line 282
+[01-Feb-2017 15:45:07 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ''baseUrl'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/pxbbxcyx/public_html/frontend/config/web.php on line 53
+[06-Feb-2017 14:39:40 Europe/Helsinki] PHP Fatal error:  Class 'frontend\controllers\Controller' not found in /home/pxbbxcyx/public_html/frontend/controllers/ProductsController.php on line 13
+[06-Feb-2017 14:40:13 Europe/Helsinki] PHP Fatal error:  Class 'frontend\controllers\Controller' not found in /home/pxbbxcyx/public_html/frontend/controllers/ProductsController.php on line 13
+[22-Feb-2017 12:07:19 Europe/Helsinki] PHP Warning:  require_once(/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:19 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:20 Europe/Helsinki] PHP Warning:  require_once(/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:20 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:26 Europe/Helsinki] PHP Warning:  require_once(/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:26 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:26 Europe/Helsinki] PHP Warning:  require_once(/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:26 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:28 Europe/Helsinki] PHP Warning:  require_once(/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:28 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:28 Europe/Helsinki] PHP Warning:  require_once(/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[22-Feb-2017 12:07:28 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required '/home/pxbbxcyx/public_html/vendor/composer/autoload_real.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/vendor/autoload.php on line 5
+[23-Feb-2017 15:11:25 Europe/Helsinki] PHP Warning:  require(/home/pxbbxcyx/public_html/backend/config/_urlManager.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:11:25 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required '/home/pxbbxcyx/public_html/backend/config/_urlManager.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:38:05 Europe/Helsinki] PHP Warning:  require(/config/_urlManager.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:38:05 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required '/config/_urlManager.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:39:55 Europe/Helsinki] PHP Warning:  require(/config/_urlManager.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:39:55 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required '/config/_urlManager.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:40:42 Europe/Helsinki] PHP Warning:  require(/config/_urlManager.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:40:42 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required '/config/_urlManager.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:41:06 Europe/Helsinki] PHP Warning:  require(/config/_urlManager.php): failed to open stream: No such file or directory in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[23-Feb-2017 15:41:06 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required '/config/_urlManager.php' (include_path='.:/opt/alt/php70/usr/share/pear') in /home/pxbbxcyx/public_html/common/config/base.php on line 144
+[07-Jun-2017 14:40:45 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/pxbbxcyx/public_html/frontend/controllers/WatermarkController.php on line 14
+[07-Jun-2017 16:23:18 Europe/Helsinki] PHP Fatal error:  Class 'frontend\models\TimestampBehavior' not found in /home/pxbbxcyx/public_html/frontend/models/Watermark.php on line 71
+[07-Jun-2017 16:23:46 Europe/Helsinki] PHP Fatal error:  Class 'frontend\models\TimestampBehavior' not found in /home/pxbbxcyx/public_html/frontend/models/Watermark.php on line 71
+[07-Jun-2017 16:38:51 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ';' in /home/pxbbxcyx/public_html/frontend/controllers/WatermarkController.php on line 83
+[07-Jun-2017 16:39:01 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 31
+[07-Jun-2017 16:39:38 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 31
+[07-Jun-2017 16:39:55 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 31
+[07-Jun-2017 16:39:59 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 31
+[07-Jun-2017 16:40:21 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 31
+[07-Jun-2017 16:50:46 Europe/Helsinki] PHP Fatal error:  Class 'frontend\controllers\UploadForm' not found in /home/pxbbxcyx/public_html/frontend/controllers/WatermarkController.php on line 14
+[07-Jun-2017 16:55:23 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 31
+[08-Jun-2017 14:36:57 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/pxbbxcyx/public_html/frontend/controllers/WatermarkController.php on line 92
+[08-Jun-2017 14:42:53 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 33
+[08-Jun-2017 14:45:13 Europe/Helsinki] PHP Fatal error:  Class 'Url' not found in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 24
+[08-Jun-2017 16:19:16 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 41
