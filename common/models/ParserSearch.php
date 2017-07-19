@@ -18,8 +18,8 @@ class ParserSearch extends Parser
     public function rules()
     {
         return [
-            [['id', 'available'], 'integer'],
-            [['product_name', 'product_sku', 'site_name', 'error_code', 'error_text'], 'safe'],
+            [['id'], 'integer'],
+            [['product_name', 'product_sku', 'site_name', 'error_code', 'error_text','available'], 'safe'],
             [['price', 'price_old'], 'number'],
         ];
     }

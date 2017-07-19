@@ -8444,3 +8444,300 @@ $_SERVER = [
     'GLIDE_SIGN_KEY' => '<generated_key>',
     'GLIDE_MAX_IMAGE_SIZE' => '4000000',
 ]
+[03-Jul-2017 15:03:07 Europe/Helsinki] PHP Fatal error:  Class 'backend\controllers\GuzzleHttp\Client' not found in /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php on line 223
+[03-Jul-2017 15:09:10 Europe/Helsinki] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method GuzzleHttp\Client::getClient() does not exist' in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php:195
+Stack trace:
+#0 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(195): ReflectionMethod->__construct('GuzzleHttp\\Clie...', 'getClient')
+#1 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('GuzzleHttp\\Clie...')
+#2 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(330): require('/home/pxbbxcyx/...')
+#3 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/pxbbxcyx/...', Array)
+#4 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(249): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(304): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(326): yii\web\ErrorHandler->renderCallStackItem('/home/pxbbxcyx/...', 222, 'GuzzleHttp\\Clie...', 'getClient', Array, 3)
+#7 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/views/errorHandler/exception.php(381): yii\web\ErrorHandler->renderCallStack(Object(InvalidArgumentException))
+#8 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(330): require('/home/pxbbxcyx/...')
+#9 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/pxbbxcyx/...', Array)
+#10 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(249): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#11 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(116): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#12 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(InvalidArgumentException))
+#13 [internal function]: yii\base\ErrorHandler->handleException(Object(InvalidArgumentException))
+#14 {main}
+Previous exception:
+exception 'InvalidArgumentException' with message 'Magic request methods require a URI and optional options array' in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/guzzlehttp/guzzle/src/Client.php:81
+Stack trace:
+#0 /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php(222): GuzzleHttp\Client->__call('getClient', Array)
+#1 /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php(222): GuzzleHttp\Client->getClient()
+#2 [internal function]: backend\controllers\ParserController->actionParse()
+#3 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('parse', Array)
+#6 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('parser/parse', Array)
+#7 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/pxbbxcyx/parser.vadimus.co.ua/backend/web/index.php(23): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch',
+    'HTTP_ACCEPT_LANGUAGE' => 'uk,ru;q=0.8,en-US;q=0.6,en;q=0.4',
+    'HTTP_CONNECTION' => 'close',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => '_csrf=648c5d46358f879b2bfd1c0d54b509b28a4eb14ab310a402376cf59fdae574b7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%A5%94%B7%B4%3F%D5%280%A54%7Du3Z%2A%60L%FB%E5%AB%AB%8F%CD%10%2C%08%92%DDX%A2z%A5%22%3B%7D; PHPSESSID=kou5a0di1950b79fvhd9v0ql51; _identity=acae00c1b3335e1a03ccc4f6e5290ceefe9ee73c1931a249692d29b6bfad8368a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Af2ZwmErQigjqI18lgjp1TakWnGle2Ra%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'parser.vadimus.co.ua',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/58.0.3029.110 Chrome/58.0.3029.110 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_FOR' => '94.158.65.103',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'WVoz5cO-GcIABlR4fNQAAAAE',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'WVoz5cO-GcIABlR4fNQAAAAE',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'parser.vadimus.co.ua',
+    'SERVER_ADDR' => '195.191.25.194',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '94.158.65.103',
+    'DOCUMENT_ROOT' => '/home/pxbbxcyx/parser.vadimus.co.ua',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/pxbbxcyx/parser.vadimus.co.ua',
+    'SERVER_ADMIN' => 'webmaster@parser.vadimus.co.ua',
+    'SCRIPT_FILENAME' => '/home/pxbbxcyx/parser.vadimus.co.ua/backend/web/index.php',
+    'REMOTE_PORT' => '45483',
+    'REDIRECT_URL' => '/admin/parser/parse',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/parser/parse',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1499083749.8631699085235595703125,
+    'REQUEST_TIME' => 1499083749,
+    'YII_DEBUG' => 'true',
+    'YII_ENV' => 'dev',
+    'LINK_ASSETS' => 'true',
+    'DB_DSN' => 'mysql:host=localhost;port=3306;dbname=pxbbxcyx_parser',
+    'DB_USERNAME' => 'pxbbxcyx',
+    'DB_PASSWORD' => 'Vadimm0832',
+    'DB_TABLE_PREFIX' => '',
+    'TEST_DB_DSN' => 'mysql:host=localhost;port=3306;dbname=yii2-starter-kit',
+    'TEST_DB_USERNAME' => 'root',
+    'TEST_DB_PASSWORD' => 'root',
+    'FRONTEND_URL' => '/',
+    'BACKEND_URL' => '/admin',
+    'STORAGE_URL' => '/storage/web',
+    'SMTP_HOST' => 'mailcatcher',
+    'SMTP_PORT' => '1025',
+    'FRONTEND_COOKIE_VALIDATION_KEY' => '<generated_key>',
+    'BACKEND_COOKIE_VALIDATION_KEY' => '<generated_key>',
+    'ADMIN_EMAIL' => 'admin@yii2-starter-kit.dev',
+    'ROBOT_EMAIL' => 'robot@yii2-starter-kit.dev',
+    'GITHUB_CLIENT_ID' => 'your-client-id',
+    'GITHUB_CLIENT_SECRET' => 'your-client-secret',
+    'GLIDE_SIGN_KEY' => '<generated_key>',
+    'GLIDE_MAX_IMAGE_SIZE' => '4000000',
+]
+[03-Jul-2017 15:09:27 Europe/Helsinki] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method GuzzleHttp\Client::Client() does not exist' in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php:195
+Stack trace:
+#0 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(195): ReflectionMethod->__construct('GuzzleHttp\\Clie...', 'Client')
+#1 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('GuzzleHttp\\Clie...')
+#2 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(330): require('/home/pxbbxcyx/...')
+#3 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/pxbbxcyx/...', Array)
+#4 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(249): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(304): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(326): yii\web\ErrorHandler->renderCallStackItem('/home/pxbbxcyx/...', 222, 'GuzzleHttp\\Clie...', 'Client', Array, 3)
+#7 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/views/errorHandler/exception.php(381): yii\web\ErrorHandler->renderCallStack(Object(InvalidArgumentException))
+#8 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(330): require('/home/pxbbxcyx/...')
+#9 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/pxbbxcyx/...', Array)
+#10 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(249): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#11 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(116): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#12 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(InvalidArgumentException))
+#13 [internal function]: yii\base\ErrorHandler->handleException(Object(InvalidArgumentException))
+#14 {main}
+Previous exception:
+exception 'InvalidArgumentException' with message 'Magic request methods require a URI and optional options array' in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/guzzlehttp/guzzle/src/Client.php:81
+Stack trace:
+#0 /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php(222): GuzzleHttp\Client->__call('Client', Array)
+#1 /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php(222): GuzzleHttp\Client->Client()
+#2 [internal function]: backend\controllers\ParserController->actionParse()
+#3 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('parse', Array)
+#6 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('parser/parse', Array)
+#7 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/pxbbxcyx/parser.vadimus.co.ua/backend/web/index.php(23): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch',
+    'HTTP_ACCEPT_LANGUAGE' => 'uk,ru;q=0.8,en-US;q=0.6,en;q=0.4',
+    'HTTP_CONNECTION' => 'close',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => '_csrf=648c5d46358f879b2bfd1c0d54b509b28a4eb14ab310a402376cf59fdae574b7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%A5%94%B7%B4%3F%D5%280%A54%7Du3Z%2A%60L%FB%E5%AB%AB%8F%CD%10%2C%08%92%DDX%A2z%A5%22%3B%7D; PHPSESSID=kou5a0di1950b79fvhd9v0ql51; _identity=acae00c1b3335e1a03ccc4f6e5290ceefe9ee73c1931a249692d29b6bfad8368a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Af2ZwmErQigjqI18lgjp1TakWnGle2Ra%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'parser.vadimus.co.ua',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/58.0.3029.110 Chrome/58.0.3029.110 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_FOR' => '94.158.65.103',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'WVoz9sO-GcIABmbeEv0AAAAI',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'WVoz9sO-GcIABmbeEv0AAAAI',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'parser.vadimus.co.ua',
+    'SERVER_ADDR' => '195.191.25.194',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '94.158.65.103',
+    'DOCUMENT_ROOT' => '/home/pxbbxcyx/parser.vadimus.co.ua',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/pxbbxcyx/parser.vadimus.co.ua',
+    'SERVER_ADMIN' => 'webmaster@parser.vadimus.co.ua',
+    'SCRIPT_FILENAME' => '/home/pxbbxcyx/parser.vadimus.co.ua/backend/web/index.php',
+    'REMOTE_PORT' => '45866',
+    'REDIRECT_URL' => '/admin/parser/parse',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/parser/parse',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1499083766.95514202117919921875,
+    'REQUEST_TIME' => 1499083766,
+    'YII_DEBUG' => 'true',
+    'YII_ENV' => 'dev',
+    'LINK_ASSETS' => 'true',
+    'DB_DSN' => 'mysql:host=localhost;port=3306;dbname=pxbbxcyx_parser',
+    'DB_USERNAME' => 'pxbbxcyx',
+    'DB_PASSWORD' => 'Vadimm0832',
+    'DB_TABLE_PREFIX' => '',
+    'TEST_DB_DSN' => 'mysql:host=localhost;port=3306;dbname=yii2-starter-kit',
+    'TEST_DB_USERNAME' => 'root',
+    'TEST_DB_PASSWORD' => 'root',
+    'FRONTEND_URL' => '/',
+    'BACKEND_URL' => '/admin',
+    'STORAGE_URL' => '/storage/web',
+    'SMTP_HOST' => 'mailcatcher',
+    'SMTP_PORT' => '1025',
+    'FRONTEND_COOKIE_VALIDATION_KEY' => '<generated_key>',
+    'BACKEND_COOKIE_VALIDATION_KEY' => '<generated_key>',
+    'ADMIN_EMAIL' => 'admin@yii2-starter-kit.dev',
+    'ROBOT_EMAIL' => 'robot@yii2-starter-kit.dev',
+    'GITHUB_CLIENT_ID' => 'your-client-id',
+    'GITHUB_CLIENT_SECRET' => 'your-client-secret',
+    'GLIDE_SIGN_KEY' => '<generated_key>',
+    'GLIDE_MAX_IMAGE_SIZE' => '4000000',
+]
+[03-Jul-2017 15:09:29 Europe/Helsinki] An Error occurred while handling another error:
+exception 'ReflectionException' with message 'Method GuzzleHttp\Client::Client() does not exist' in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php:195
+Stack trace:
+#0 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(195): ReflectionMethod->__construct('GuzzleHttp\\Clie...', 'Client')
+#1 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/views/errorHandler/callStackItem.php(26): yii\web\ErrorHandler->addTypeLinks('GuzzleHttp\\Clie...')
+#2 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(330): require('/home/pxbbxcyx/...')
+#3 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/pxbbxcyx/...', Array)
+#4 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(249): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#5 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(304): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#6 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(326): yii\web\ErrorHandler->renderCallStackItem('/home/pxbbxcyx/...', 222, 'GuzzleHttp\\Clie...', 'Client', Array, 3)
+#7 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/views/errorHandler/exception.php(381): yii\web\ErrorHandler->renderCallStack(Object(InvalidArgumentException))
+#8 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(330): require('/home/pxbbxcyx/...')
+#9 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/home/pxbbxcyx/...', Array)
+#10 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(249): yii\base\View->renderFile('@yii/views/erro...', Array, Object(yii\web\ErrorHandler))
+#11 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/ErrorHandler.php(116): yii\web\ErrorHandler->renderFile('@yii/views/erro...', Array)
+#12 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(InvalidArgumentException))
+#13 [internal function]: yii\base\ErrorHandler->handleException(Object(InvalidArgumentException))
+#14 {main}
+Previous exception:
+exception 'InvalidArgumentException' with message 'Magic request methods require a URI and optional options array' in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/guzzlehttp/guzzle/src/Client.php:81
+Stack trace:
+#0 /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php(222): GuzzleHttp\Client->__call('Client', Array)
+#1 /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php(222): GuzzleHttp\Client->Client()
+#2 [internal function]: backend\controllers\ParserController->actionParse()
+#3 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#5 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('parse', Array)
+#6 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('parser/parse', Array)
+#7 /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/pxbbxcyx/parser.vadimus.co.ua/backend/web/index.php(23): yii\base\Application->run()
+#9 {main}
+$_SERVER = [
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch',
+    'HTTP_ACCEPT_LANGUAGE' => 'uk,ru;q=0.8,en-US;q=0.6,en;q=0.4',
+    'HTTP_CONNECTION' => 'close',
+    'CONTENT_LENGTH' => '0',
+    'HTTP_COOKIE' => '_csrf=648c5d46358f879b2bfd1c0d54b509b28a4eb14ab310a402376cf59fdae574b7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%A5%94%B7%B4%3F%D5%280%A54%7Du3Z%2A%60L%FB%E5%AB%AB%8F%CD%10%2C%08%92%DDX%A2z%A5%22%3B%7D; PHPSESSID=kou5a0di1950b79fvhd9v0ql51; _identity=acae00c1b3335e1a03ccc4f6e5290ceefe9ee73c1931a249692d29b6bfad8368a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22Af2ZwmErQigjqI18lgjp1TakWnGle2Ra%22%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'parser.vadimus.co.ua',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/58.0.3029.110 Chrome/58.0.3029.110 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_FOR' => '94.158.65.103',
+    'HTTP_X_FORWARDED_PROTO' => 'http',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'REDIRECT_UNIQUE_ID' => 'WVoz@cO-GcIABlpdCRkAAAAO',
+    'REDIRECT_STATUS' => '200',
+    'UNIQUE_ID' => 'WVoz@cO-GcIABlpdCRkAAAAO',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'parser.vadimus.co.ua',
+    'SERVER_ADDR' => '195.191.25.194',
+    'SERVER_PORT' => '80',
+    'REMOTE_ADDR' => '94.158.65.103',
+    'DOCUMENT_ROOT' => '/home/pxbbxcyx/parser.vadimus.co.ua',
+    'REQUEST_SCHEME' => 'http',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/pxbbxcyx/parser.vadimus.co.ua',
+    'SERVER_ADMIN' => 'webmaster@parser.vadimus.co.ua',
+    'SCRIPT_FILENAME' => '/home/pxbbxcyx/parser.vadimus.co.ua/backend/web/index.php',
+    'REMOTE_PORT' => '45944',
+    'REDIRECT_URL' => '/admin/parser/parse',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/admin/parser/parse',
+    'SCRIPT_NAME' => '/backend/web/index.php',
+    'PHP_SELF' => '/backend/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1499083769.59010791778564453125,
+    'REQUEST_TIME' => 1499083769,
+    'YII_DEBUG' => 'true',
+    'YII_ENV' => 'dev',
+    'LINK_ASSETS' => 'true',
+    'DB_DSN' => 'mysql:host=localhost;port=3306;dbname=pxbbxcyx_parser',
+    'DB_USERNAME' => 'pxbbxcyx',
+    'DB_PASSWORD' => 'Vadimm0832',
+    'DB_TABLE_PREFIX' => '',
+    'TEST_DB_DSN' => 'mysql:host=localhost;port=3306;dbname=yii2-starter-kit',
+    'TEST_DB_USERNAME' => 'root',
+    'TEST_DB_PASSWORD' => 'root',
+    'FRONTEND_URL' => '/',
+    'BACKEND_URL' => '/admin',
+    'STORAGE_URL' => '/storage/web',
+    'SMTP_HOST' => 'mailcatcher',
+    'SMTP_PORT' => '1025',
+    'FRONTEND_COOKIE_VALIDATION_KEY' => '<generated_key>',
+    'BACKEND_COOKIE_VALIDATION_KEY' => '<generated_key>',
+    'ADMIN_EMAIL' => 'admin@yii2-starter-kit.dev',
+    'ROBOT_EMAIL' => 'robot@yii2-starter-kit.dev',
+    'GITHUB_CLIENT_ID' => 'your-client-id',
+    'GITHUB_CLIENT_SECRET' => 'your-client-secret',
+    'GLIDE_SIGN_KEY' => '<generated_key>',
+    'GLIDE_MAX_IMAGE_SIZE' => '4000000',
+]
+[04-Jul-2017 11:06:39 Europe/Helsinki] PHP Fatal error:  Out of memory (allocated 44564480) (tried to allocate 489173 bytes) in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/electrolinux/phpquery/phpQuery/phpQuery/DOMDocumentWrapper.php on line 387
+[04-Jul-2017 11:06:39 Europe/Helsinki] PHP Fatal error:  Out of memory (allocated 2359296) (tried to allocate 248 bytes) in /home/pxbbxcyx/parser.vadimus.co.ua/vendor/yiisoft/yii2/BaseYii.php on line 292
+[04-Jul-2017 11:13:00 Europe/Helsinki] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php on line 255
+[04-Jul-2017 15:44:43 Europe/Helsinki] PHP Fatal error:  Call to undefined method common\models\Parser::parser() in /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php on line 143
+[05-Jul-2017 11:03:43 Europe/Helsinki] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ')' in /home/pxbbxcyx/parser.vadimus.co.ua/backend/controllers/ParserController.php on line 153

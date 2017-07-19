@@ -55,7 +55,7 @@ $config = [
         'user' => [
             'class'=>'yii\web\User',
             'identityClass' => 'common\models\User',
-            'loginUrl'=>['/user/sign-in/login'],
+            'loginUrl'=>['/sign-in/login'],
             'enableAutoLogin' => true,
             'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
         ]

@@ -13,7 +13,7 @@ use Yii;
  * @property string $site_name
  * @property string $price
  * @property string $price_old
- * @property integer $available
+ * @property string $available
  * @property string $error_code
  * @property string $error_text
  */
@@ -35,9 +35,9 @@ class Parser extends \yii\db\ActiveRecord
         return [
 //            [['product_name', 'product_sku', 'site_name', 'price', 'price_old', 'available', 'error_code', 'error_text'], 'required'],
             [['price', 'price_old'], 'number'],
-            [['available'], 'integer'],
             [['product_name', 'site_name', 'error_code', 'error_text'], 'string', 'max' => 255],
             [['product_sku'], 'string', 'max' => 64],
+            [['available'], 'string', 'max' => 55],
         ];
     }
 

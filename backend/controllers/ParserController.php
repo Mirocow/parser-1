@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\ParserPrice;
 use common\models\Products;
 use Yii;
 use common\models\Parser;
@@ -128,22 +129,19 @@ class ParserController extends Controller
         }
     }
 
+
     public function actionParse()
     {
-        Yii::$app->db->createCommand()->truncateTable('parser')->execute(); //clear the table
 
-
-        //client settings
-        $proxy = false;
-        $post = false;
-        $post_data = false;
-        $user_agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36';
-        $headers = false;
-        $extradata = false;
 
         $a = Products::find()->from('parser_products')->min('id'); // give the min id value
         $b = Products::find()->from('parser_products')->max('id'); // give the max id value
 //        $i = $a;
+        $model = Parser::find()->all(); //Select values ​​from the db to transfer the old price
+
+//        var_dump($prices);
+
+        Yii::$app->db->createCommand()->truncateTable('parser')->execute(); //clear the table
 
         for ($i = $a; $i <= $b; $i++) {
             //give the url of product
@@ -185,14 +183,14 @@ class ParserController extends Controller
         echo $sku . " ";
 
 
-            $price_new_tag = (new \yii\db\Query())//give the price_new_tag
-            ->select(['price_new_tag'])
-                ->from('parser_sites')
-                ->where(['name' => $site])
-                ->limit(1)
-                ->one();
-            $price_new_tag = ArrayHelper::getValue($price_new_tag, 'price_new_tag');  //converting array to string
-//        echo $price_new_tag;
+//            $price_new_tag = (new \yii\db\Query())//give the price_new_tag
+//            ->select(['price_new_tag'])
+//                ->from('parser_sites')
+//                ->where(['name' => $site])
+//                ->limit(1)
+//                ->one();
+//            $price_new_tag = ArrayHelper::getValue($price_new_tag, 'price_new_tag');  //converting array to string
+////        echo $price_new_tag;
 
 
             $price_tag = (new \yii\db\Query())//give the price_tag
@@ -212,48 +210,79 @@ class ParserController extends Controller
                 ->limit(1)
                 ->one();
             $tag_active = ArrayHelper::getValue($tag_active, 'tag_active');  //converting array to string
-//        echo $tag_active;
+            $tag_active = $tag_active . ':first';
 
 
-            $client = new Client();
-//        $client = new Client(array( 'curl' => array( CURLOPT_SSL_VERIFYPEER => false, ), ));
-//            $client->Client()->setDefaultOption('config/curl/' . CURLOPT_SSL_VERIFYPEER, false);
+
+            $client = new Client();  //Run Guzzle
             $res = $client->request('GET', $url);
 
-            $error_code = $res->getStatusCode();
+//            $error_code = $res->getStatusCode();
             $body = $res->getBody();
             $document = \phpQuery::newDocumentHTML($body);
             $price = $document->find($price_tag);
-            $price = preg_replace("/[^0-9\.\,]/", '', $price);
+            $active = $document->find($tag_active);
+            $price = preg_replace("/[^0-9\.\,]/", '', $price); //replace the "a-z"
 
-            $price = trim($price, ".");
+            $price = trim($price, ".");  //trim the string
 //        $active = $document->find($tag_active);
-            $active = 0;
-            if ($document->find($tag_active))
-                $active = 1;
+//            $active = 0;
+//            if ($document->find($tag_active))
+//                $active = 1;
+//            $active = ArrayHelper::getValue($active, 'active');
+//            print_r($active);
+//            die ();
+            $active = strval($active); // convert into the string
+            $active = strip_tags($active); //strip the html tags
 
+            $active = strval($active);
+            $active = strip_tags($active);
+//
             echo $active . " ";
+//            die();
 
-
-            echo $price . " ";
+//            echo $error_code . "<html> <br></html>";
+            echo $price . "<html> <br></html>";
 
 //            echo $error_code;
 //            $parser = Parser::findOne($i);
+//            $parser_price = new ParserPrice();
+//            $parser_price->price = $price;
+//            $parser_price->save();
 
-            $parser = new Parser();
+            $parser = new Parser(); //save to db
             $parser->price = $price;
             $parser->product_name = $name;
             $parser->site_name = $site;
             $parser->product_sku = $sku;
-//            $parser->error_code = $error_code;
             $parser->available = $active;
+
             $parser->save();
 
 
+//            $price = (new \yii\db\Query())
+//                ->select(['url'])
+//                ->from('parser_products')
+//                ->where(['id' => $i])
+//                ->limit(1)
+//                ->one();
+//            $url = ArrayHelper::getValue($url, 'url');  //converting array to string
 //        echo $price;
 //        var_dump($ret);
 //        echo $document;
 //        curl_close($res);
         }
+        if($model) {                            //insert old price to db
+            foreach ($model as $m) {
+                $id = $m->id;
+                $price_old = $m->price;
+
+                $model = Parser::findOne($id);
+                $model->price_old = $price_old;
+                $model->save();
+
+            }
+        }
+        unset ($model);
     }
 }
