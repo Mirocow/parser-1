@@ -4,10 +4,16 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Products;
+use common\models\Upload;
 use common\models\ProductsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use League\Csv\Reader;
+
+
+
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -35,7 +41,18 @@ class ProductsController extends Controller
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+//        $model = new Products();
+//        return $this->render('index', array(
+//            'model' => $model,
+//          [
+//            'searchModel' => $searchModel,
+//            'dataProvider' => $dataProvider,
+//        ]));
+
+        $model = new Products();
+
         return $this->render('index', [
+            'model' => $model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -117,5 +134,34 @@ class ProductsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionUpload()
+    {
+        $model = new Upload();
+
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if ($model->upload()) {
+                // file is uploaded successfully
+                $csv = Reader::createFromPath('uploads/' . 'price.csv')
+                    ->setHeaderOffset(0)
+                ;
+
+                foreach ($csv as $record) {
+                    $products = new Products(); //save to db
+                    $products->name = $record['Name'];
+//                    $products->sku = $record['Sku'];
+//                    $products->site_id = $record['Site ID'];
+//                    $products->url = $record['Url'];
+                    $products->save();
+                }
+                ;
+                return $this->render('upload', ['model' => $model]);
+
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
     }
 }

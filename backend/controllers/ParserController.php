@@ -133,7 +133,8 @@ class ParserController extends Controller
     public function actionParse()
     {
 
-
+        Yii::$app->db->createCommand("set @i := -1;
+update parser_products set id = (@i := @i+1 ) order by id;")->execute();
         $a = Products::find()->from('parser_products')->min('id'); // give the min id value
         $b = Products::find()->from('parser_products')->max('id'); // give the max id value
 //        $i = $a;
@@ -162,7 +163,7 @@ class ParserController extends Controller
                 ->limit(1)
                 ->one();
             $site = ArrayHelper::getValue($site, 'site_id');  //converting array to string
-        echo $site . " ";
+            echo $site . " ";
 
             $name = (new \yii\db\Query())
                 ->select(['name'])
@@ -171,7 +172,7 @@ class ParserController extends Controller
                 ->limit(1)
                 ->one();
             $name = ArrayHelper::getValue($name, 'name');  //converting array to string
-        echo $name . " ";
+            echo $name . " ";
 
             $sku = (new \yii\db\Query())
                 ->select(['sku'])
@@ -180,7 +181,7 @@ class ParserController extends Controller
                 ->limit(1)
                 ->one();
             $sku = ArrayHelper::getValue($sku, 'sku');  //converting array to string
-        echo $sku . " ";
+            echo $sku . " ";
 
 
 //            $price_new_tag = (new \yii\db\Query())//give the price_new_tag
@@ -200,7 +201,7 @@ class ParserController extends Controller
                 ->limit(1)
                 ->one();
             $price_tag = ArrayHelper::getValue($price_tag, 'price_tag');  //converting array to string
-        $price_tag = $price_tag . ':first';
+            $price_tag = $price_tag . ':first';
 
 
             $tag_active = (new \yii\db\Query())//give the tag_active
@@ -215,16 +216,47 @@ class ParserController extends Controller
 
 
             $client = new Client();  //Run Guzzle
-            $res = $client->request('GET', $url);
+            $handle = curl_init($url);
+            curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 
-//            $error_code = $res->getStatusCode();
-            $body = $res->getBody();
-            $document = \phpQuery::newDocumentHTML($body);
-            $price = $document->find($price_tag);
-            $active = $document->find($tag_active);
-            $price = preg_replace("/[^0-9\.\,]/", '', $price); //replace the "a-z"
+            /* Get the HTML or whatever is linked in $url. */
+            $response = curl_exec($handle);
 
-            $price = trim($price, ".");  //trim the string
+            /* Check for 404 (file not found). */
+            $error_code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+            $error_code = strval($error_code); // convert into the string
+            $error_code = strip_tags($error_code); //strip the html tags
+//            $error_code = preg_replace("/[^0-9\.\,]/", '', $error_code); //replace the "a-z"
+            if($error_code == 404 || $error_code == 302) {
+                echo $error_code;
+                $parser = new Parser(); //save to db
+                $parser->price = '0';
+                $parser->product_name = $name;
+                $parser->site_name = $site;
+                $parser->product_sku = $sku;
+                $parser->available = '0';
+                $parser->error_code = $error_code;
+                $parser->error_text = 'Ошибка URL';
+                $parser->save();
+                curl_close($handle);
+            }else{
+                $res = $client->request('GET', $url,[
+                        'headers' => [
+                            'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/60.0.3112.78 Chrome/60.0.3112.78 Safari/537.36',
+                            'Accept'     => 'application/json',
+                            'X-Foo'      => ['Bar', 'Baz']
+                        ]
+                    ]
+                );
+
+                $error_code = $res->getStatusCode();
+                $body = $res->getBody();
+                $document = \phpQuery::newDocumentHTML($body);
+                $price = $document->find($price_tag);
+                $active = $document->find($tag_active);
+                $price = preg_replace("/[^0-9\.\,]/", '', $price); //replace the "a-z"
+
+                $price = trim($price, ".");  //trim the string
 //        $active = $document->find($tag_active);
 //            $active = 0;
 //            if ($document->find($tag_active))
@@ -232,17 +264,20 @@ class ParserController extends Controller
 //            $active = ArrayHelper::getValue($active, 'active');
 //            print_r($active);
 //            die ();
-            $active = strval($active); // convert into the string
-            $active = strip_tags($active); //strip the html tags
+                $active = strval($active); // convert into the string
+                $active = strip_tags($active); //strip the html tags
 
-            $active = strval($active);
-            $active = strip_tags($active);
+                $active = strval($active);
+                $active = strip_tags($active);
 //
-            echo $active . " ";
+                echo $active . " ";
 //            die();
+                $error_code = strval($error_code); // convert into the string
+                $error_code = strip_tags($error_code); //strip the html tags
 
-//            echo $error_code . "<html> <br></html>";
-            echo $price . "<html> <br></html>";
+                echo $price . " ";
+                echo $error_code . "<html> <br></html>";
+
 
 //            echo $error_code;
 //            $parser = Parser::findOne($i);
@@ -250,14 +285,17 @@ class ParserController extends Controller
 //            $parser_price->price = $price;
 //            $parser_price->save();
 
-            $parser = new Parser(); //save to db
-            $parser->price = $price;
-            $parser->product_name = $name;
-            $parser->site_name = $site;
-            $parser->product_sku = $sku;
-            $parser->available = $active;
+                $parser = new Parser(); //save to db
+                $parser->price = $price;
+                $parser->product_name = $name;
+                $parser->site_name = $site;
+                $parser->product_sku = $sku;
+                $parser->available = $active;
+                $parser->error_code = $error_code;
+                $parser->error_text = 'Ok';
+                $parser->save();
+            }
 
-            $parser->save();
 
 
 //            $price = (new \yii\db\Query())

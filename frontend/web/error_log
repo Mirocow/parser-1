@@ -47,3 +47,4 @@ Stack trace:
 [08-Jun-2017 14:42:53 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 33
 [08-Jun-2017 14:45:13 Europe/Helsinki] PHP Fatal error:  Class 'Url' not found in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 24
 [08-Jun-2017 16:19:16 Europe/Helsinki] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/pxbbxcyx/public_html/frontend/views/watermark/index.php on line 41
+[22-Aug-2017 00:00:07 Europe/Helsinki] PHP Fatal error:  Class 'phpQuery' not found in /home/pxbbxcyx/parser.vadimus.co.ua/frontend/controllers/SiteController.php on line 138

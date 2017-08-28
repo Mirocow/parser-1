@@ -2,7 +2,12 @@
 
 namespace common\models;
 
+
 use Yii;
+use yii\web\UploadedFile;
+use yii\db\ActiveRecord;
+
+
 
 /**
  * This is the model class for table "parser_products".
@@ -15,12 +20,14 @@ use Yii;
  *
  * @property Parser $id0
  * @property Sites $site
+ * @property Products $file
  */
 class Products extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
+    public $file;
     public static function tableName()
     {
         return 'parser_products';
@@ -36,9 +43,8 @@ class Products extends \yii\db\ActiveRecord
             [['id'], 'integer'],
             [['name', 'url', 'site_id'], 'string', 'max' => 255],
             [['sku'], 'string', 'max' => 64],
-//            [['id'], 'exist', 'skipOnError' => true, 'targetClass' => Parser::className(), 'targetAttribute' => ['id' => 'product_id']],
-//            [['site_id'], 'exist', 'skipOnError' => true, 'targetClass' => Sites::className(), 'targetAttribute' => ['site_id' => 'id']],
-        ];
+            [['file'], 'file', 'skipOnEmpty' => false,],
+            ];
     }
 
     /**
@@ -54,22 +60,6 @@ class Products extends \yii\db\ActiveRecord
             'url' => Yii::t('app', 'Url'),
         ];
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-//    public function getId0()
-//    {
-//        return $this->hasOne(Parser::className(), ['product_id' => 'id']);
-//    }
-//
-//    /**
-//     * @return \yii\db\ActiveQuery
-//     */
-//    public function getSite()
-//    {
-//        return $this->hasOne(ParserSites::className(), ['id' => 'site_id']);
-//    }
 
     /**
      * @inheritdoc

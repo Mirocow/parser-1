@@ -50,14 +50,11 @@
     "symfony/process": "^3.0",
     "kartik-v/yii2-widgets": "*",
     "kartik-v/yii2-grid": "@dev",
-    "league/csv": "^8.2",
+    "league/csv": "^8.0",
     "kartik-v/yii2-dynagrid": "@dev",
     "yiisoft/yii2-imagine": "^2.1",
-    "ruskid/yii2-csv-importer": "dev-master",
-    "linslin/yii2-curl": "1.1.3",
-    "electrolinux/phpquery": "0.9.6",
-    "guzzlehttp/guzzle": "6.3.0",
-    "keltstr/yii2-simplehtmldom": "2.210.x-dev"
+    "2amigos/yii2-file-upload-widget": "1.0.7",
+    "wittiws/phpquery": "^0.9.6"
 
   },
   "require-dev": {

@@ -68,6 +68,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'available',
                 'vAlign'=>'middle',
             ],
+            [
+//                'class'=>'kartik\grid\BooleanColumn',
+                'attribute'=>'error_code',
+                'vAlign'=>'middle',
+            ],
 //            [
 //                'class'=>'kartik\grid\ActionColumn',
 //                'dropdown'=>false,
